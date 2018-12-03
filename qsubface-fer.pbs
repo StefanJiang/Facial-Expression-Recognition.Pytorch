@@ -1,0 +1,25 @@
+#!/bin/sh
+#PBS -N zifan
+#PBS -l nodes=13:ppn=8:gpus=1
+
+###PBS -M zjian30@emory.edu
+###PBS -m abe
+
+#PBS -q batch
+
+##PBS -e /home/zjian30/test/face-py-faster-rcnn/data/demo/error
+##PBS -o /home/zjian30/test/face-py-faster-rcnn/data/demo/output
+
+
+######/home/zjian30/testgpu0.sh
+###export CUDA_VISIBLE_DEVICES=''
+
+### run program
+##python /home/zjian30/test/face-py-faster-rcnn/tools/run_face_detection_on_fddb.py --gpu=0
+##python /home/zjian30/test/face-py-faster-rcnn/tools/demo.py --gpu=0
+##python /home/zjian30/test/face-py-faster-rcnn/tools/vis_face_detection.py img_1005-Copy1.jpg --gpu=0
+python /home/zjian30/test/Facial-Expression-Recognition.Pytorch/visualize.py 
+
+###-----commands to check status---------
+### lspci | grep -i nvidia # check gpu
+### nvidia-smi
