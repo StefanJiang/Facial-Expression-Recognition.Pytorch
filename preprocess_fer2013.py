@@ -5,7 +5,8 @@ import os
 import numpy as np
 import h5py
 
-file = 'data/fer2013.csv'
+dir_path = '/home/zjian30/test/Facial-Expression-Recognition.Pytorch/'
+file = dir_path + 'data/fer2013.csv'
 
 # Creat the list to store the data and label information
 Training_x = []
@@ -15,7 +16,7 @@ PublicTest_y = []
 PrivateTest_x = []
 PrivateTest_y = []
 
-datapath = os.path.join('data','data.h5')
+datapath = dir_path + os.path.join('data','data.h5')
 if not os.path.exists(os.path.dirname(datapath)):
     os.makedirs(os.path.dirname(datapath))
 

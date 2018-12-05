@@ -40,6 +40,9 @@ cut_size = 44
 total_epoch = 250
 
 path = os.path.join(opt.dataset + '_' + opt.model)
+dir_path = '/home/zjian30/test/Facial-Expression-Recognition.Pytorch/'
+path = dir_path + path
+print(path)
 
 # Data
 print('==> Preparing data..')
@@ -121,8 +124,8 @@ def train(epoch):
         total += targets.size(0)
         correct += predicted.eq(targets.data).cpu().sum()
 
-        utils.progress_bar(batch_idx, len(trainloader), 'Loss: %.3f | Acc: %.3f%% (%d/%d)'
-            % (train_loss/(batch_idx+1), 100.*correct/total, correct, total))
+#         utils.progress_bar(batch_idx, len(trainloader), 'Loss: %.3f | Acc: %.3f%% (%d/%d)'
+#             % (train_loss/(batch_idx+1), 100.*correct/total, correct, total))
 
     Train_acc = 100.*correct/total
 
@@ -148,8 +151,8 @@ def PublicTest(epoch):
         total += targets.size(0)
         correct += predicted.eq(targets.data).cpu().sum()
 
-        utils.progress_bar(batch_idx, len(PublicTestloader), 'Loss: %.3f | Acc: %.3f%% (%d/%d)'
-                           % (PublicTest_loss / (batch_idx + 1), 100. * correct / total, correct, total))
+#         utils.progress_bar(batch_idx, len(PublicTestloader), 'Loss: %.3f | Acc: %.3f%% (%d/%d)'
+#                            % (PublicTest_loss / (batch_idx + 1), 100. * correct / total, correct, total))
 
     # Save checkpoint.
     PublicTest_acc = 100.*correct/total
@@ -189,8 +192,8 @@ def PrivateTest(epoch):
         total += targets.size(0)
         correct += predicted.eq(targets.data).cpu().sum()
 
-        utils.progress_bar(batch_idx, len(PublicTestloader), 'Loss: %.3f | Acc: %.3f%% (%d/%d)'
-            % (PrivateTest_loss / (batch_idx + 1), 100. * correct / total, correct, total))
+#         utils.progress_bar(batch_idx, len(PublicTestloader), 'Loss: %.3f | Acc: %.3f%% (%d/%d)'
+#             % (PrivateTest_loss / (batch_idx + 1), 100. * correct / total, correct, total))
     # Save checkpoint.
     PrivateTest_acc = 100.*correct/total
 
